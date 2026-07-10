@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rees International</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      color: #333;
+      background: #e8e8e8;
+    }
+
+    /* ===== TOP BAR (address bar simulation) ===== */
+    #topbar {
+      background: #ddd;
+      border-bottom: 1px solid #bbb;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* ===== HEADER ===== */
+    #header {
+      background: #fff;
+      border-bottom: 1px solid #ccc;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #logo {
+      width: 110px; height: 70px;
+      border: 1px solid #aaa;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: #777;
+      background: #f5f5f5;
+    }
+    #header-right {
+      text-align: right;
+    }
+    /* Navigation */
+    nav {
+      margin-bottom: 8px;
+    }
+    nav a {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #e0e0e0;
+      border: 1px solid #bbb;
+      text-decoration: none;
+      color: #333;
+      font-size: 12px;
+      margin-left: 4px;
+    }
+    nav a:hover { background: #ccc; }
+    #header-address {
+      font-size: 11px;
+      color: #555;
+    }
+
+    /* ===== MAIN SECTION ===== */
+    #main {
+      background: #fff;
+      margin: 0;
+      padding: 30px 40px;
+      border-top: 1px solid #ddd;
+    }
+    #main h1 {
+      font-size: 28px;
+      font-weight: normal;
+      font-style: italic;
+      margin-bottom: 24px;
+      color: #222;
+    }
+
+    /* Partner cards grid: 2 columns */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .partner-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: #fafafa;
+      padding: 12px;
+      border: 1px solid #e0e0e0;
+    }
+    .company-logo {
+      width: 90px; min-width: 90px; height: 80px;
+      border: 1px solid #aaa;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: #888;
+      background: #f0f0f0;
+      position: relative;
+    }
+    /* X cross placeholder */
+    .company-logo::before,
+    .company-logo::after {
+      content: '';
+      position: absolute;
+      background: #bbb;
+    }
+    .company-logo::before {
+      width: 100%; height: 1px;
+      top: 50%; left: 0;
+      transform: rotate(30deg);
+    }
+    .company-logo::after {
+      width: 100%; height: 1px;
+      top: 50%; left: 0;
+      transform: rotate(-30deg);
+    }
+    .company-logo span {
+      position: relative; z-index: 1;
+      font-size: 9px; color: #666; text-align: center;
+    }
+    .partner-info h3 {
+      font-size: 14px;
+      font-weight: bold;
+      color: #3a7abf;
+      margin-bottom: 2px;
+    }
+    .partner-info .ceo {
+      font-size: 12px;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .partner-info p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    /* ===== FOOTER ===== */
+    #footer {
+      background: #555;
+      color: #ccc;
+      padding: 24px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 20px;
+      font-size: 12px;
+    }
+    #footer h4 {
+      font-size: 13px;
+      color: #fff;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    #footer a {
+      display: block;
+      color: #bbb;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+    #footer a:hover { color: #fff; }
+    #footer p { line-height: 1.7; color: #bbb; }
+    .google-map-placeholder {
+      width: 100%; height: 100px;
+      background: #888;
+      border: 1px solid #666;
+      display: flex; align-items: center; justify-content: center;
+      color: #ccc; font-size: 11px;
+      position: relative;
+    }
+    .google-map-placeholder::before,
+    .google-map-placeholder::after {
+      content: '';
+      position: absolute;
+      background: #aaa;
+    }
+    .google-map-placeholder::before {
+      width: 100%; height: 1px; top: 50%; transform: rotate(25deg);
+    }
+    .google-map-placeholder::after {
+      width: 100%; height: 1px; top: 50%; transform: rotate(-25deg);
+    }
+    .google-map-placeholder span { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+
+  <!-- Browser topbar -->
+  <div id="topbar">
+    ← → ✕ &nbsp;&nbsp; http://www.rees-consulting.com &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rees International ipsum lorem
+  </div>
+
+  <!-- Header with logo and nav -->
+  <div id="header">
+    <div id="logo"><span>Logo</span></div>
+    <div id="header-right">
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#" style="background:#3a7abf; color:white; border-color:#2a5a9f;">Who We Work With</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div id="header-address">Calle de tu Oficina 20, 28029, Madrid. Tel: 91 756</div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div id="main">
+    <h1>Who We Work With</h1>
+    <div class="partners-grid">
+
+      <!-- Card 1 -->
+      <div class="partner-card">
+        <div class="company-logo"><span>Company Logo</span></div>
+        <div class="partner-info">
+          <h3>Coca Cola</h3>
+          <div class="ceo">Steve Jobs – CEO</div>
+          <p>Working with Rees... Nullam id dolor id nibh ultrices vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="partner-card">
+        <div class="company-logo"><span>Company Logo</span></div>
+        <div class="partner-info">
+          <h3>Coca Cola</h3>
+          <div class="ceo">Steve Jobs – CEO</div>
+          <p>Working with Rees... Nullam id dolor id nibh ultrices vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="partner-card">
+        <div class="company-logo"><span>Company Logo</span></div>
+        <div class="partner-info">
+          <h3>Coca Cola</h3>
+          <div class="ceo">Steve Jobs – CEO</div>
+          <p>Working with Rees... Nullam id dolor id nibh ultrices vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="partner-card">
+        <div class="company-logo"><span>Company Logo</span></div>
+        <div class="partner-info">
+          <h3>Coca Cola</h3>
+          <div class="ceo">Steve Jobs – CEO</div>
+          <p>Working with Rees... Nullam id dolor id nibh ultrices vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer">
+    <div>
+      <h4>Site Map</h4>
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Services</a>
+      <a href="#">Who We Work</a>
+      <a href="#">Contact</a>
+    </div>
+    <div>
+      <h4>Client Testimonials</h4>
+      <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at.</p>
+      <br>
+      <p><em>— Steve Sulby,<br>CEO Windsor Foods</em></p>
+    </div>
+    <div>
+      <h4 style="color:#aaa; font-weight:normal;">Google Map</h4>
+      <div class="google-map-placeholder"><span>Google Map</span></div>
+    </div>
+    <div>
+      <h4>Where are we?</h4>
+      <p>
+        Calle de tu Oficina 20,<br>
+        28029,<br>
+        Madrid.<br>
+        Tel: 91 756<br>
+        Mobile +34<br>
+        info@r
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
